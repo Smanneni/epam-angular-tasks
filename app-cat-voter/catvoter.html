@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/style.css">
+  <script src="app.js"></script>
+  <script src="Controllers/catvotercontroller.js"></script>
+</head>
+
+<body ng-app="catvoter">
+  <h1>Cat Voter</h1>
+  <div ng-controller="catvoterController as vm">
+    {{vm.selected.value}}
+    <ul>
+      <li ng-repeat="cat in vm.cats">
+        <a href ng-click="vm.selectedCat(cat);" ng-model="cat">{{cat.name}}</a>
+        <img ng-src="https://d30y9cdsu7xlg0.cloudfront.net/png/9014-200.png" ng-show="cat.tickmark"/>
+      </li>
+
+    </ul>
+    <br/>
+    <div ng-show="vm.selectedOne">
+      <span>{{vm.selectedOne.name}}</span><img ng-src="{{vm.selectedOne.url}}" alt="{{selectedOne.name}}" /> Selected Cat clicks:{{vm.selectedCatClicks}}
+       <span ng-click="vm.incrementCatClick()">&#9650</span>
+      <span ng-click="vm.decrementCatClick()">&#9660</span>
+    </div>
+
+  </div>
+  
+</body>
+
+</html>
+

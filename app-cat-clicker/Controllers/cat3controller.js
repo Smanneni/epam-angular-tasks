@@ -1,6 +1,6 @@
 //need to refractor h-w-1 section 3
 (function (module) {
-    function cat3Controller($scope) {
+    function cat3Controller() {
         var vm = this;
         vm.cats = [{
             name: 'cat1',
@@ -35,7 +35,7 @@
         };
 
     }
-  module.controller("cat3Controller", cat3Controller);
+    module.controller("cat3Controller", cat3Controller);
 
 })(angular.module("catclick"));
 

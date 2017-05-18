@@ -1,7 +1,7 @@
 
 //h-w-1 section 2
 (function (module) {
-    function cat2Controller($scope) {
+    function cat2Controller() {
         var vm = this;
         vm.cat1Clik = 0;
         vm.cat2Clik = 0;
@@ -12,7 +12,7 @@
             vm.cat2Clik++;
         }
     }
-  module.controller("cat2Controller",cat2Controller) ;
+    module.controller("cat2Controller", cat2Controller);
 })(angular.module("catclick"));
 
 

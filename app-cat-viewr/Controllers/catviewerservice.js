@@ -1,5 +1,5 @@
 (function (module) {
-    function catviewerservice($http) {
+    function catviewerservice($http,$q) {
         var service = {
             GetCats: GetCats,
             AddCat:AddCat
@@ -26,18 +26,19 @@
             url: 'http://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496'
 
         }];
-       
-        return service;
+        
         function GetCats() {
-            return cats;
-            
+            var deffered = $q.defer();
+            deffered.resolve(cats);
+            return deffered.promise;
         }
         function AddCat(reqName,reqUrl) {
 
             cats.push({ name: reqName, url: reqUrl });
         }
+        return service;
     }
     
-    catviewerservice.$inject = ['$http'];
+    catviewerservice.$inject = ['$http', '$q'];
     module.service('catviewerservice', catviewerservice);
 })(angular.module('catviewer'));

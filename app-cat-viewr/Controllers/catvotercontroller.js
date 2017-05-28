@@ -1,6 +1,6 @@
 //need to refractor h-w-1 section 3
 (function(module) {
-function catvoterController($scope,$cookies) {
+    function catvoterController($cookies) {
   var vm=this;
 	  vm.cats = [{
       name: 'cat1',
@@ -28,17 +28,18 @@ function catvoterController($scope,$cookies) {
       tickmark:false
 
     }];
-    vm.selectedOne = null;
+	  vm.selectedOne = null;
+	  vm.getmycookiesback = null
     vm.selectedCat = function(item) {
       vm.selectedOne = item;
       vm.selectedCatClicks = 0;
       item.tickmark=true;
     };
-    vm.getmycookiesback = null;
-    vm.incrementCatClick = function() {
-      vm.selectedCatClicks++;
-      $cookies.upvotes=vm.selectedCatClicks
-      vm.favoriteCookie = $cookies.upvotes;
+    vm.incrementCatClick = upvotes;
+    function upvotes() {
+        vm.selectedCatClicks++;
+        $cookies.putObject('catVotes', { 'name': 'cat', 'vote': vm.selectedCatClicks });
+        getmycookiesback = $cookies.getObject('catVotes');
     };
     vm.decrementCatClick = function() {
       if(vm.selectedCatClicks>0)
@@ -47,10 +48,11 @@ function catvoterController($scope,$cookies) {
       }
     };
 }
- catvoterController.$inject = ["$cookies"];
+ 
+   catvoterController.$inject = ["$cookies"];
   module.controller("catvoterController", catvoterController);
 
-})(angular.module("catvoter"));
+})(angular.module("catviewer"));
 
 
 

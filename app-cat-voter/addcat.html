@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-cookies.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="app.js"></script>
+    <script src="Controllers/addcatcontroller.js"></script>
+</head>
+<body ng-app="catvoter">
+    <div ng-controller="addcatcontroller as vm">
+         <form name="myForm">
+        <table border="1">
+            <tbody width="700px">
+                <tr><td width="50%">Cat Name: </td><td><input type="text" ng-model="vm.CatName" id="Text1" required></td></tr>
+                <tr><td width="50%">URL: </td><td><input type="url" ng-model="vm.url" id="url1" required></td></tr>
+            </tbody> 
+        </table>
+        <div style="padding-top:50px;">
+            <input type="button"  value ="Save" ng-disabled="myForm.$invalid" >
+            <input type="button"  value ="Cancel">
+        </div>           
+    </form>
+        
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

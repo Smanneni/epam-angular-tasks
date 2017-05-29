@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/style.css">
+  <script src="app.js"></script>
+  <script src="Controllers/cat1controller.js"></script>
+  <script src="Controllers/cat2controller.js"></script>
+  <script src="Controllers/cat3controller.js"></script>
+</head>
+
+<body ng-app="catclick">
+
+  <h1>Cat Clicker-Section 1</h1>
+  <div ng-controller="cat1Controller as vm">
+    <img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg"  ng-click="vm.catClick()"> cat:{{vm.count}}
+    <div>Total Count={{vm.count}}</div>
+  </div>
+
+  <h1>Cat Clicker-Section 2</h1>
+  <div ng-controller="cat2Controller as vm">
+    <span>Cat1</span><img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg"  ng-click="vm.clickCount1()"> cat1:{{vm.cat1Clik}}
+    <span>Cat2</span><img ng-src="http://placekitten.com.s3.amazonaws.com/homepage-samples/200/286.jpg"  ng-click="vm.clickCount2()"> cat2:{{vm.cat2Clik}}
+
+    <div>Total Count={{vm.cat1Clik+vm.cat2Clik}}</div>
+  </div>
+  
+  <h1>Cat Clicker-Section 3</h1>
+  <div ng-controller="cat3Controller as vm">
+    {{vm.selected.value}}
+    <ul>
+      <li ng-repeat="cat in vm.cats">
+        <a href ng-click="vm.selectedCat(cat);" ng-model="cat">{{cat.name}}</a>
+      </li>
+
+    </ul>
+    <br/>
+    <div ng-show="vm.selectedOne">
+
+      
+      <span>{{vm.selectedOne.name}}</span><img ng-src="{{vm.selectedOne.url}}" alt="{{selectedOne.name}}" ng-click="vm.selecteCatClick()"> Selected Cat clicks:{{vm.selectedCatClicks}}
+      <span>Total Clicks:{{vm.totalclicks}}</span>
+    </div>
+
+  </div>
+  
+</body>
+
+</html>

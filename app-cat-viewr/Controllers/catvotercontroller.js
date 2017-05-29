@@ -40,7 +40,7 @@
         vm.selectedCatClicks++;
         $cookies.putObject('catVotes', { 'name': vm.cats.name, 'vote': vm.selectedCatClicks });
         vm.getmycookiesback = $cookies.getObject('catVotes');
-       alert(vm.getmycookiesback.name)
+       
     };
     vm.decrementCatClick = function() {
       if(vm.selectedCatClicks>0)
@@ -50,7 +50,7 @@
     };
 }
  
-   catvoterController.$inject = ["$cookies"];
+  catvoterController.$inject = ["$cookies"];
   module.controller("catvoterController", catvoterController);
 
 })(angular.module("catviewer"));

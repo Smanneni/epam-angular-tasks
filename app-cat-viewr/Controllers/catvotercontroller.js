@@ -38,8 +38,9 @@
     vm.incrementCatClick = upvotes;
     function upvotes() {
         vm.selectedCatClicks++;
-        $cookies.putObject('catVotes', { 'name': 'cat', 'vote': vm.selectedCatClicks });
-        getmycookiesback = $cookies.getObject('catVotes');
+        $cookies.putObject('catVotes', { 'name': vm.cats.name, 'vote': vm.selectedCatClicks });
+        vm.getmycookiesback = $cookies.getObject('catVotes');
+       alert(vm.getmycookiesback.name)
     };
     vm.decrementCatClick = function() {
       if(vm.selectedCatClicks>0)

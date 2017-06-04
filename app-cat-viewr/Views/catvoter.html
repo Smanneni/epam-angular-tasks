@@ -11,8 +11,13 @@
     <br/>
     <div ng-show="vm.selectedOne">
       <span>{{vm.selectedOne.name}}</span><img ng-src="{{vm.selectedOne.url}}" alt="{{selectedOne.name}}" /> Selected Cat clicks:{{vm.selectedCatClicks}}
-       <span ng-click="vm.incrementCatClick()">&#9650</span>
-      <span ng-click="vm.decrementCatClick()">&#9660</span>
+       
+        <a class="btn btn-success"  href="#" id="testBtnDown" ng-click="vm.incrementCatClick()">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+        </a>
+        <a class="btn btn-danger " href="#" id="testBtnDown" ng-click="vm.decrementCatClick()">
+            <i class="fa fa-thumbs-down"></i>
+        </a>
     </div>
 
   </div>

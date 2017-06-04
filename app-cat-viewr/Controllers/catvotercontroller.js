@@ -29,7 +29,7 @@
 
     }];
 	  vm.selectedOne = null;
-	  vm.getmycookiesback = null
+      vm.getmycookiesback = null
     vm.selectedCat = function(item) {
       vm.selectedOne = item;
       vm.selectedCatClicks = 0;
@@ -40,12 +40,11 @@
         vm.selectedCatClicks++;
         $cookies.putObject('catVotes', { 'name': vm.cats.name, 'vote': vm.selectedCatClicks });
         vm.getmycookiesback = $cookies.getObject('catVotes');
-       
     };
     vm.decrementCatClick = function() {
       if(vm.selectedCatClicks>0)
       {
-       vm.selectedCatClicks--;
+          vm.selectedCatClicks--;
       }
     };
 }

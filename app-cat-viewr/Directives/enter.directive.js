@@ -1,6 +1,6 @@
 (function (module) {
 
-module.directive('ngEnter', function () {
+module.directive('catEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if(event.which === 13) {
